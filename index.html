@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2'%3E%3Cpath d='M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'/%3E%3C/svg%3E" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GWM | Grey Water Management System</title>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Layout Wrapper -->
+      <div class="layout-container">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+          <div class="brand">
+            <div class="brand-logo">
+              <i class="fa-solid fa-droplet"></i>
+            </div>
+            <span class="brand-name">GWM Portal</span>
+          </div>
+          
+          <nav class="menu-section" id="sidebar-menu">
+            <span class="menu-title">Main Menu</span>
+            <a class="menu-item active" data-view="dashboard">
+              <i class="fa-solid fa-chart-pie"></i> Dashboard
+            </a>
+            <a class="menu-item" data-view="collections">
+              <i class="fa-solid fa-truck-droplet"></i> Water Collections
+            </a>
+            <a class="menu-item" data-view="treatment">
+              <i class="fa-solid fa-gears"></i> Treatment Stages
+            </a>
+            <a class="menu-item" data-view="quality">
+              <i class="fa-solid fa-flask-vial"></i> Water Quality
+            </a>
+            <a class="menu-item" data-view="maintenance">
+              <i class="fa-solid fa-wrench"></i> Maintenance
+            </a>
+            <a class="menu-item" data-view="users">
+              <i class="fa-solid fa-users-gear"></i> User Roster
+            </a>
+            <a class="menu-item" data-view="sql-console">
+              <i class="fa-solid fa-terminal"></i> SQL Console
+            </a>
+            <a class="menu-item" data-view="reports">
+              <i class="fa-solid fa-file-invoice-dollar"></i> Reports
+            </a>
+          </nav>
+          
+          <div class="sidebar-footer">
+            <div class="user-profile" id="current-user-card">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </aside>
+        
+        <!-- Main Content Area -->
+        <main class="main-content">
+          <!-- Top Header Bar -->
+          <header class="topbar">
+            <div class="page-title-area">
+              <h1 id="page-heading">Dashboard</h1>
+            </div>
+            
+            <div class="topbar-actions">
+              <!-- Role Switcher -->
+              <div class="role-switcher-container">
+                <span class="role-switcher-label">View As:</span>
+                <select class="role-switcher-select" id="role-select">
+                  <option value="admin">Administrator</option>
+                  <option value="plant_manager">Plant Manager</option>
+                  <option value="operator">Treatment Operator</option>
+                  <option value="maintenance">Maintenance Staff</option>
+                  <option value="resident">Resident / User</option>
+                </select>
+              </div>
+              
+              <!-- Notifications Alert Icon -->
+              <button class="notif-btn" id="notif-toggle">
+                <i class="fa-solid fa-bell"></i>
+                <span class="notif-badge" id="notif-badge-count">0</span>
+              </button>
+              
+              <!-- Notifications Dropdown panel -->
+              <div class="notif-dropdown" id="notif-dropdown">
+                <div class="notif-header">
+                  <h4>Alerts & Notifications</h4>
+                  <button class="btn btn-secondary btn-sm" id="clear-notif-btn">Clear All</button>
+                </div>
+                <div class="notif-list" id="notif-list-container">
+                  <!-- Dynamic Notifications -->
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <!-- Dynamic Content Body -->
+          <div id="content-body" class="content-body">
+            <!-- Rendered by Views Engine -->
+          </div>
+        </main>
+        
+      </div>
+      
+      <!-- Modal Root -->
+      <div id="modal-container" class="modal-overlay">
+        <!-- Rendered by Modal controller -->
+      </div>
+    </div>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
