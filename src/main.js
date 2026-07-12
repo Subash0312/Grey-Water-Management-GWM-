@@ -6,7 +6,7 @@ import { renderView } from './views.js';
 
 // User Role Mappings to User IDs
 const ROLE_USER_MAP = {
-  admin: { id: 1, name: "Arasu Kumar" },
+  admin: { id: 1, name: "Subash" },
   plant_manager: { id: 2, name: "Sarah Connor" },
   operator: { id: 3, name: "John Doe" },
   maintenance: { id: 4, name: "Mike Miller" },

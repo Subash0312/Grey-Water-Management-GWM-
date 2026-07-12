@@ -2,7 +2,7 @@
 // Implements SQL schema and query execution for Grey Water Management (GWM) system
 
 const DEFAULT_USERS = [
-  { user_id: 1, name: "Arasu Kumar", email: "arasu@gwm.com", password: "password", role: "admin" },
+  { user_id: 1, name: "Subash", email: "subash@gwm.com", password: "password", role: "admin" },
   { user_id: 2, name: "Sarah Connor", email: "sarah@gwm.com", password: "password", role: "plant_manager" },
   { user_id: 3, name: "John Doe", email: "john@gwm.com", password: "password", role: "operator" },
   { user_id: 4, name: "Mike Miller", email: "mike@gwm.com", password: "password", role: "maintenance" },
@@ -43,10 +43,21 @@ const DEFAULT_NOTIFICATIONS = [
   { notification_id: 3, user_id: 3, message: "New water collection batch #5 added. Treatment initiation required.", notification_date: "2026-07-12" }
 ];
 
-// Initialize Database
 export function initDB() {
   if (!localStorage.getItem("gwm_users")) {
     localStorage.setItem("gwm_users", JSON.stringify(DEFAULT_USERS));
+  } else {
+    try {
+      const users = JSON.parse(localStorage.getItem("gwm_users"));
+      const adminUser = users.find(u => u.user_id === 1);
+      if (adminUser && adminUser.name === "Arasu Kumar") {
+        adminUser.name = "Subash";
+        adminUser.email = "subash@gwm.com";
+        localStorage.setItem("gwm_users", JSON.stringify(users));
+      }
+    } catch (e) {
+      console.error("Failed to parse gwm_users", e);
+    }
   }
   if (!localStorage.getItem("gwm_water_collections")) {
     localStorage.setItem("gwm_water_collections", JSON.stringify(DEFAULT_COLLECTIONS));
